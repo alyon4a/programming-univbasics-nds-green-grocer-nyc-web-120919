@@ -93,6 +93,20 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
+  new_cart = consolidate_cart(cart)
+  apply_coupons(new_cart, coupons)
+  apply_clearance(new_cart)
+  
+  i = 0 
+  total = 0.0
+  while i < cart.size do
+    subtotal = cart[i][:price] * cart[i][:count]
+    total += subtotal
+    i += 1
+  end
+  
+  return total
+  
   # Consult README for inputs and outputs
   #
   # This method should call
