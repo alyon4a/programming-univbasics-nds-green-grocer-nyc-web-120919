@@ -99,8 +99,8 @@ def checkout(cart, coupons)
   
   i = 0 
   total = 0.0
-  while i < cart.size do
-    subtotal = cart[i][:price] * cart[i][:count]
+  while i < new_cart.size do
+    subtotal = new_cart[i][:price] * new_cart[i][:count]
     total += subtotal
     i += 1
   end
